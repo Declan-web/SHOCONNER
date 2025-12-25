@@ -6,69 +6,126 @@
     <title>Kissing under the mistletoe! | LOG</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* 로그 페이지 전용 추가 디자인 */
-        .log-body { background: #fff; padding: 40px 20px; max-width: 800px; margin: 0 auto; }
-        .log-content { margin-top: 50px; border-top: 1px solid #eee; padding-top: 30px; }
+        /* 로그 페이지 전용 스타일 최적화 */
+        body { background-color: #ffffff; color: #333; }
+        .sub-container { max-width: 800px; margin: 40px auto; padding: 0 20px; }
+
+        /* 1. 배경색 초기화: 파란색 제거 및 회색 통일 */
+        .message.general.you, 
+        .message.general { 
+            background-color: rgb(241, 241, 241) !important; 
+            margin-bottom: 2px;
+            padding: 10px 15px 10px 45px !important;
+        }
+
+        /* 2. 구분선 색상 통일 */
+        .message .spacer { 
+            background-color: rgb(225, 225, 225) !important; 
+            height: 2px;
+            margin-bottom: 7px;
+            margin-left: -45px;
+            margin-right: -15px;
+        }
+
+        /* 3. 주사위 레이아웃 고정: 화면 밖으로 나가지 않음 */
+        .formula.formattedformula {
+            max-width: 100% !important;
+            box-sizing: border-box !important;
+            overflow-x: auto !important;
+            display: block !important;
+            float: none !important;
+            background: white !important;
+            padding: 10px !important;
+            margin: 5px 0 !important;
+            border: 1px solid #ddd !important;
+        }
+
+        .diceroll {
+            display: inline-block !important;
+            word-break: break-all !important;
+        }
+
+        /* 4. 이탤릭체(desc) 설정: 검은색 및 강조 */
+        .message.desc {
+            background-color: rgb(241, 241, 241) !important;
+            color: #000000 !important; /* 회색에서 검은색으로 변경 */
+            font-style: italic !important;
+            font-weight: bold !important;
+            text-align: center !important;
+            padding: 15px !important;
+        }
         
-        /* 채팅 메세지 스타일 */
-        .message { margin-bottom: 15px; padding: 10px; border-radius: 5px; position: relative; }
-        .message.you { background-color: #f0f7ff; } /* KPC 혹은 강조 메시지용 연한 파랑 */
-        .message.general { background-color: #f9f9f9; }
-        .avatar { display: inline-block; width: 30px; vertical-align: middle; margin-right: 10px; }
+        /* desc 내부 링크 색상 강제 지정 */
+        .message.desc a { color: #000000 !important; }
+
+        /* 아바타 이미지 설정 */
+        .avatar { position: absolute; top: 8px; left: 10px; width: 28px; }
         .avatar img { width: 100%; border-radius: 50%; }
-        .by { font-weight: bold; margin-right: 10px; font-size: 0.9rem; }
-        .desc { font-style: italic; text-align: center; color: #888; margin: 30px 0; font-weight: bold; }
-        
-        /* 주사위 결과 스타일 */
-        .formula { display: inline-block; padding: 2px 8px; background: #eee; border-radius: 3px; font-size: 0.85rem; font-weight: bold; }
+        .by { font-weight: bold; margin-right: 5px; }
     </style>
 </head>
 <body>
+
     <div class="sub-container">
         <a href="logs.html" class="back-home">← BACK TO LIST</a>
-        <h2 class="sub-title">Kissing under the mistletoe!</h2>
-        <p style="text-align: center; color: #bbb; font-size: 0.8rem; margin-top: -50px; margin-bottom: 50px;">2025. 12. 24. Played by Declan & Raymond</p>
-
+        
         <div class="log-content">
             <div class="message general you">
                 <div class="avatar"><img src="https://files.d20.io/images/468881200/wFIjFEcj9X7EKHB0nnycPQ/med.jpg?1766568344"></div>
                 <span class="by">Declan:</span>
-                <span class="formula">55</span> (rolling 3d6*5)
+                <span class="inlinerollresult" style="background-color: #fef68e; padding: 2px 4px;">55</span>
             </div>
 
             <div class="message general">
+                <div class="spacer"></div>
                 <div class="avatar"><img src="https://files.d20.io/images/468881705/MDQiycXcHUHVzS0hXaPXIA/med.jpg?1766569257"></div>
-                <span class="by">Raymond:</span>
-                <span>.......</span>
+                <span class="by">Raymond:</span>.......
             </div>
 
-            <div class="desc">준비됐나요? 어서 귀엽게 멍.</div>
+            <div class="message rollresult">
+                <div class="formula">rolling 3d6*5</div>
+                <div class="formula formattedformula">
+                    ( <div class="diceroll">2</div> + <div class="diceroll" style="color:green;">6</div> + <div class="diceroll" style="color:red;">1</div> ) * 5 
+                    <strong>= 45</strong>
+                </div>
+            </div>
+
+            <div class="message desc">
+                <div class="spacer"></div>
+                준비됐나요? 어서 귀엽게 멍.
+            </div>
 
             <div class="message general">
+                <div class="spacer"></div>
                 <div class="avatar"><img src="https://files.d20.io/images/468881705/MDQiycXcHUHVzS0hXaPXIA/med.jpg?1766569257"></div>
-                <span class="by">Raymond:</span>
-                <span>멍....... 가자.</span>
+                <span class="by">Raymond:</span>멍……. 가자.
             </div>
 
-            <div class="desc">기쁜 우리 성탄절! 집은 온통 겨우살이 장식으로 도배되어 있습니다.</div>
+            <div class="message desc">
+                <div class="spacer"></div>
+                기쁜 우리 성탄절!<br>
+                집은 온통 겨우살이 장식으로 도배되어 있습니다.
+            </div>
 
             <div class="message general you">
+                <div class="spacer"></div>
                 <div class="avatar"><img src="https://files.d20.io/images/468881200/wFIjFEcj9X7EKHB0nnycPQ/med.jpg?1766568344"></div>
-                <span class="by">Declan:</span>
-                <span>겨우살이 아래야. 키스할까?</span>
+                <span class="by">Declan:</span>겨우살이 아래야. 키스할까?
             </div>
 
-            <div class="desc">
-                <img src="https://imgur.com/FctQZTS.png" style="max-width:100%; height:auto; margin-bottom:10px;"><br>
-                <span style="color: #af202d;">Kissing under the mistletoe!</span><br>
-                <small style="font-weight:normal;">성자상도 순례자도 입술은 있지 않습니까?<br>그렇다면 성자여, 입술로 손의 일을 할까요.</small>
+            <div class="message desc">
+                <div class="spacer"></div>
+                <img src="https://imgur.com/FctQZTS.png" style="max-width: 100%; height: auto; margin-bottom: 10px;"><br>
+                <span style="color: #af202d; font-style: normal;">Kissing under the mistletoe!</span><br>
+                <small style="font-weight: normal; font-style: normal;">성자상도 순례자도 입술은 있지 않습니까?<br>그렇다면 성자여, 입술로 손의 일을 할까요.</small>
             </div>
             
             </div>
-        
-        <footer style="margin-top: 100px; text-align: center;">
+
+        <footer style="margin-top: 80px; text-align: center; padding-bottom: 40px;">
             <a href="logs.html" class="back-home">FIN.</a>
         </footer>
     </div>
+
 </body>
 </html>
