@@ -1,61 +1,55 @@
-/* 기본 초기화 */
+/* 웹 폰트 불러오기 (프리텐다드) */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
 body { 
-    font-family: 'Pretendard', sans-serif; 
-    background: #0f0f0f; color: #e0e0e0; 
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif; 
+    background: #ffffff; color: #333333; 
     line-height: 1.6; word-break: keep-all;
 }
+
 a { text-decoration: none; color: inherit; transition: 0.3s; }
 
-/* [HOME] index.html 전용 */
-.home-body { 
-    display: flex; align-items: center; justify-content: center; height: 100vh; 
-}
+/* [HOME] index.html */
+.home-body { display: flex; align-items: center; justify-content: center; height: 100vh; }
 .home-container { text-align: center; }
 .main-title { 
-    font-size: 2.2rem; letter-spacing: 12px; font-weight: 200; 
-    margin-bottom: 60px; color: #fff;
+    font-size: 2.2rem; letter-spacing: 12px; font-weight: 300; 
+    margin-bottom: 60px; color: #000;
 }
 .main-nav a {
     display: inline-block; margin: 0 25px; font-size: 0.85rem; 
-    letter-spacing: 4px; color: #666; font-weight: 400;
+    letter-spacing: 4px; color: #999; font-weight: 500;
 }
-.main-nav a:hover { color: #fff; text-shadow: 0 0 10px rgba(255,255,255,0.5); }
+.main-nav a:hover { color: #000; }
 
-/* [SUB] 공통 레이아웃 */
-.sub-container { max-width: 700px; margin: 120px auto; padding: 0 20px; }
-.back-home { 
-    font-size: 0.75rem; color: #444; letter-spacing: 2px; 
-    display: block; margin-bottom: 50px; 
-}
-.back-home:hover { color: #888; }
+/* [SUB] 공통 */
+.sub-container { max-width: 700px; margin: 80px auto; padding: 0 20px; }
+.back-home { font-size: 0.75rem; color: #bbb; letter-spacing: 2px; display: block; margin-bottom: 40px; }
 .sub-title { 
-    font-size: 1.2rem; letter-spacing: 8px; font-weight: 300;
-    margin-bottom: 80px; text-align: center; color: #aaa;
+    font-size: 1.1rem; letter-spacing: 8px; font-weight: 400;
+    margin-bottom: 60px; text-align: center; color: #888;
 }
 
-/* [LOGS] 리스트 스타일 */
-.list-wrapper { border-top: 1px solid #222; }
-.list-item { border-bottom: 1px solid #222; }
-.list-item a { display: flex; padding: 30px 10px; align-items: center; }
-.item-date { font-size: 0.75rem; color: #444; width: 120px; letter-spacing: 1px; }
-.item-name { font-size: 0.95rem; color: #999; }
-.list-item a:hover .item-name { color: #fff; transform: translateX(5px); }
+/* [LOGS] */
+.list-wrapper { border-top: 1px solid #eee; }
+.list-item { border-bottom: 1px solid #eee; }
+.list-item a { display: flex; padding: 25px 10px; align-items: center; }
+.item-date { font-size: 0.75rem; color: #bbb; width: 100px; letter-spacing: 1px; }
+.item-name { font-size: 0.95rem; color: #555; }
+.list-item a:hover .item-name { color: #000; padding-left: 5px; }
 
-/* [GALLERY] 그리드 스타일 */
-.gallery-grid { 
-    display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; 
-}
-.photo-item { background: #1a1a1a; overflow: hidden; aspect-ratio: 1 / 1; }
-.photo-item img { 
-    width: 100%; height: 100%; object-fit: cover; 
-    opacity: 0.7; transition: 0.5s; 
-}
-.photo-item img:hover { opacity: 1; transform: scale(1.03); }
+/* [GALLERY] */
+.gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
+.photo-card { text-align: left; }
+.photo-item { background: #f9f9f9; overflow: hidden; aspect-ratio: 1 / 1; margin-bottom: 10px; border: 1px solid #eee; }
+.photo-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+.photo-caption { font-size: 0.8rem; color: #777; letter-spacing: -0.5px; }
 
 /* 모바일 대응 */
 @media (max-width: 600px) {
-    .main-title { font-size: 1.5rem; letter-spacing: 8px; }
+    .main-title { font-size: 1.6rem; letter-spacing: 8px; }
     .gallery-grid { grid-template-columns: 1fr; }
     .list-item a { flex-direction: column; align-items: flex-start; }
     .item-date { margin-bottom: 5px; }
