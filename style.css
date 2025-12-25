@@ -1,29 +1,54 @@
-/* 1. 배경색 초기화 (파란색 제거) */
-.message.general.you {
-    background-color: #f1f1f1 !important; /* 일반 메시지와 동일한 연회색으로 변경 */
+/* 기본 셋팅 */
+body {
+    margin: 0; font-family: 'Pretendard', sans-serif;
+    background-color: #fafafa; color: #333; line-height: 1.6;
+}
+a { text-decoration: none; color: inherit; transition: 0.3s; }
+.container { max-width: 900px; margin: 0 auto; padding: 60px 20px; }
+
+/* 네비게이션 */
+nav {
+    background: #fff; border-bottom: 1px solid #eee;
+    position: sticky; top: 0; z-index: 100;
+}
+.nav-inner {
+    max-width: 1000px; margin: 0 auto; padding: 15px 20px;
+    display: flex; justify-content: space-between; align-items: center;
+}
+.logo { font-weight: 800; letter-spacing: 2px; }
+nav ul { list-style: none; display: flex; gap: 30px; margin: 0; }
+nav ul li a { font-size: 13px; font-weight: 600; color: #777; }
+nav ul li a:hover { color: #000; }
+
+/* 메인 비주얼 */
+.main-visual {
+    background: #222; color: #fff; text-align: center;
+    padding: 120px 20px; background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://imgur.com/nm4TMPm.png');
+    background-size: cover; background-position: center;
+}
+.main-visual h1 { font-size: 2.5rem; margin-bottom: 10px; letter-spacing: -1px; }
+
+/* 섹션 타이틀 */
+.section-title {
+    text-align: center; font-size: 1.2rem; font-weight: 700;
+    margin-bottom: 40px; letter-spacing: 4px; color: #999;
 }
 
-.message.general.you .spacer {
-    background-color: #e1e1e1 !important; /* 구분선 색상도 차분하게 변경 */
-}
+/* 캐릭터 카드 */
+.char-grid { display: flex; gap: 20px; justify-content: center; }
+.char-card { background: #fff; padding: 30px; border: 1px solid #eee; text-align: center; width: 250px; }
+.char-img img { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-bottom: 15px; }
+.char-card h3 { font-size: 1.1rem; margin-bottom: 5px; }
+.char-card p { font-size: 0.85rem; color: #888; }
 
-/* 2. 주사위 레이아웃 고정 */
-.formula.formattedformula {
-    max-width: 100%;           /* 부모 요소 폭을 넘지 않음 */
-    box-sizing: border-box;    /* 패딩 포함 계산 */
-    overflow-x: auto;          /* 혹시 넘치면 내부에서 스크롤 */
-    display: block !important; /* 줄바꿈 허용 */
-    float: none !important;    /* 레이아웃 깨짐 방지 */
+/* 로그 리스트 */
+.log-list { list-style: none; padding: 0; }
+.log-list li { border-bottom: 1px solid #eee; }
+.log-list li a { 
+    display: flex; padding: 20px; align-items: center; 
 }
+.log-list li a:hover { background: #f1f1f1; }
+.date { font-size: 12px; color: #aaa; width: 100px; }
+.title { font-weight: 500; }
 
-.diceroll {
-    display: inline-block;
-    word-break: break-all;     /* 단어 단위로 끊어서 줄바꿈 */
-}
-
-/* 3. 모바일/작은 화면 대응 */
-.message {
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    max-width: 100%;
-}
+footer { text-align: center; padding: 40px; font-size: 12px; color: #ccc; }
