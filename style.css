@@ -1,70 +1,62 @@
-/* 기본 스타일 */
-body {
-    margin: 0; padding: 0; background-color: #ffffff;
-    font-family: 'Pretendard', -apple-system, sans-serif;
-    color: #333; scroll-behavior: smooth;
+/* 기본 초기화 */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { 
+    font-family: 'Pretendard', sans-serif; 
+    background: #0f0f0f; color: #e0e0e0; 
+    line-height: 1.6; word-break: keep-all;
 }
-ul { list-style: none; padding: 0; }
 a { text-decoration: none; color: inherit; transition: 0.3s; }
 
-/* 중앙 정렬 레이아웃 */
-.main-wrapper {
-    max-width: 800px; margin: 0 auto; padding: 0 20px;
-    text-align: center;
+/* [HOME] index.html 전용 */
+.home-body { 
+    display: flex; align-items: center; justify-content: center; height: 100vh; 
+}
+.home-container { text-align: center; }
+.main-title { 
+    font-size: 2.2rem; letter-spacing: 12px; font-weight: 200; 
+    margin-bottom: 60px; color: #fff;
+}
+.main-nav a {
+    display: inline-block; margin: 0 25px; font-size: 0.85rem; 
+    letter-spacing: 4px; color: #666; font-weight: 400;
+}
+.main-nav a:hover { color: #fff; text-shadow: 0 0 10px rgba(255,255,255,0.5); }
+
+/* [SUB] 공통 레이아웃 */
+.sub-container { max-width: 700px; margin: 120px auto; padding: 0 20px; }
+.back-home { 
+    font-size: 0.75rem; color: #444; letter-spacing: 2px; 
+    display: block; margin-bottom: 50px; 
+}
+.back-home:hover { color: #888; }
+.sub-title { 
+    font-size: 1.2rem; letter-spacing: 8px; font-weight: 300;
+    margin-bottom: 80px; text-align: center; color: #aaa;
 }
 
-/* 대문 & 메뉴 */
-.hero {
-    padding: 150px 0 100px 0;
-    border-bottom: 1px solid #eee;
-}
-.main-title {
-    font-size: 3rem; font-weight: 200; letter-spacing: 12px; margin-bottom: 10px;
-}
-.subtitle {
-    font-size: 0.9rem; color: #999; letter-spacing: 2px; margin-bottom: 60px;
-}
+/* [LOGS] 리스트 스타일 */
+.list-wrapper { border-top: 1px solid #222; }
+.list-item { border-bottom: 1px solid #222; }
+.list-item a { display: flex; padding: 30px 10px; align-items: center; }
+.item-date { font-size: 0.75rem; color: #444; width: 120px; letter-spacing: 1px; }
+.item-name { font-size: 0.95rem; color: #999; }
+.list-item a:hover .item-name { color: #fff; transform: translateX(5px); }
 
-/* 중앙 메뉴 버튼 */
-.center-menu ul {
-    display: flex; justify-content: center; gap: 40px;
+/* [GALLERY] 그리드 스타일 */
+.gallery-grid { 
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; 
 }
-.center-menu a {
-    font-size: 0.85rem; font-weight: 600; color: #555;
-    letter-spacing: 3px; border: 1px solid #eee; padding: 12px 25px;
+.photo-item { background: #1a1a1a; overflow: hidden; aspect-ratio: 1 / 1; }
+.photo-item img { 
+    width: 100%; height: 100%; object-fit: cover; 
+    opacity: 0.7; transition: 0.5s; 
 }
-.center-menu a:hover {
-    background: #000; color: #fff; border-color: #000;
-}
+.photo-item img:hover { opacity: 1; transform: scale(1.03); }
 
-/* 섹션 공통 */
-.content-section { padding: 100px 0; border-bottom: 1px solid #eee; }
-.section-label {
-    font-size: 1rem; letter-spacing: 5px; color: #bbb; margin-bottom: 50px;
+/* 모바일 대응 */
+@media (max-width: 600px) {
+    .main-title { font-size: 1.5rem; letter-spacing: 8px; }
+    .gallery-grid { grid-template-columns: 1fr; }
+    .list-item a { flex-direction: column; align-items: flex-start; }
+    .item-date { margin-bottom: 5px; }
 }
-
-/* 로그 리스트 스타일 */
-.log-item {
-    border: 1px solid #f1f1f1; margin-bottom: 10px;
-}
-.log-item a {
-    display: flex; justify-content: space-between; padding: 25px;
-}
-.log-item a:hover { background: #fafafa; }
-.log-date { color: #ccc; font-size: 0.8rem; }
-.log-name { font-weight: 500; }
-
-/* 갤러리 그리드 */
-.gallery-grid {
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 15px;
-}
-.photo-card {
-    background: #f9f9f9; overflow: hidden; height: 200px;
-}
-.photo-card img {
-    width: 100%; height: 100%; object-fit: cover; transition: 0.5s;
-}
-.photo-card img:hover { transform: scale(1.05); }
-
-footer { padding: 60px 0; font-size: 10px; color: #ccc; letter-spacing: 2px; }
